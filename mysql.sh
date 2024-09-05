@@ -32,6 +32,15 @@ VALIDATE(){
  VALIDATE $? "check symlink connected"
  systemctl start mysqld & >>LOG_FILE
  VALIDATE $? "Check my sql service started"
- mysql_secure_installation --set-root-pass ExpenseApp@1 & >>LOG_FILE
- VALIDATE $? " set the root account password"
+ mysql -h  mysql.crazymonk.online  -u root -pExpense@1 ; 'show databases;'& >>LOG_FILE
+ if [ $? -ne 0 ]
+ then
+    echo "my sql root password not set up , setting now"
+    mysql_secure_installation --set-root-pass ExpenseApp@1 | tee -a $LOG_FILE
+    VALIDATE $? " set the root account password"
+ else
+    echo -e "$Y mysql root password already setup $N"
+    
+ fi
+ 
  
