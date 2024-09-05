@@ -32,7 +32,7 @@ VALIDATE(){
  VALIDATE $? "check symlink connected"
  systemctl start mysqld & >>LOG_FILE
  VALIDATE $? "Check my sql service started"
- mysql -h  mysql.crazymonk.online  -u root -pExpenseApp@1 -e 'show databases;' $ >>LOG_FILE
+ mysql -h  mysql.crazymonk.online  -u root -pExpenseApp@1 -e 'show databases;'   &  >>LOG_FILE
  
  if [ $? -ne 0 ]
  then
