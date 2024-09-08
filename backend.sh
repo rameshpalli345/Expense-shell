@@ -51,7 +51,7 @@ VALIDATE(){
  npm install &>>$LOG_FILE
  VALIDATE $? " install the dependencies" 
  cp /root/Expense-shell/backend.service /etc/systemd/system/backend.service
- 
+
 
 
 
