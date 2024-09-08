@@ -50,7 +50,7 @@ VALIDATE(){
  VALIDATE $? "change directoy and extracting the code"
  npm install &>>$LOG_FILE
  VALIDATE $? " install the dependencies" 
- cp /root/Expense-shell/backend.service /etc/systemd/system/backend.service
+ cp /root/Expense-shell/backend.service.sh /etc/systemd/system/backend.service
 
 
 
