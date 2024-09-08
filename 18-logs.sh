@@ -11,6 +11,6 @@ else
 echo -e " $R SOURCE Directory not exists..$N"
 exit 1
 fi
-FILES=$(find $SOURCE_DIR -name "*.log" )
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +1 )
 echo "files: $FILES"
 
