@@ -28,7 +28,7 @@ VALIDATE(){
  CHECK_ROOT
  dnf module disable nodejs -y &>>$LOG_FILE
  VALIDATE $? "disable nodejs previous version"
- dnf module enable nodejs:20 -y & >>$LOG_FILE
+ dnf module enable nodejs:20 -y &>>$LOG_FILE
  VALIDATE $? "enable nodejs version20"
 
  id expense &>>$LOG_FILE
