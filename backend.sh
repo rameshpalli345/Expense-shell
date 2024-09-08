@@ -54,13 +54,3 @@ VALIDATE(){
 
 
 
- 
- if [ $? -ne 0 ]
- then
-    echo "my sql root password not set up , setting now"
-    mysql_secure_installation --set-root-pass ExpenseApp@1 | tee -a $LOG_FILE
-    VALIDATE $? " set the root account password"
- else
-    echo -e "$Y mysql root password already setup $N"
-    
- fi
