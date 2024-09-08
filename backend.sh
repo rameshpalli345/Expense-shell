@@ -57,6 +57,8 @@ VALIDATE(){
  VALIDATE $? "connection to backend schema"
  systemctl daemon-reload &>>$LOG_FILE
  VALIDATE $? "system load the sevices"
+ systemctl enable backend &>>$LOG_FILE
+ VALIDATE "enable the backend service"
  systemctl restart backend &>>$LOG_FILE
  VALIDATE $? "restart the backend services"
 
