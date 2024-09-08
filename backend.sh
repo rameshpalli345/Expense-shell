@@ -50,7 +50,7 @@ VALIDATE(){
  VALIDATE $? "change directoy and extracting the code"
  npm install &>>$LOG_FILE
  VALIDATE $? " install the dependencies" 
- cp /home/ec2-user/Expense-shell/backend.service /etc/systemd/system/backend.service 
+ cp /root/Expense-shell/backend.service /etc/systemd/system/backend.service 
  dnf install mysql -y  &>>$LOG_FILE
  VALIDATE $? " install my sql client"
  mysql -h mysql.crazymonk.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
