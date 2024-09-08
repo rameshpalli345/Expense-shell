@@ -57,7 +57,7 @@ VALIDATE $? "unzip the files into html folder"
 
 cp /home/ec2-user/Expense-shell/expense.conf /etc/nginx/default.d/expense.conf 
 
-systemctl restart nginx
+systemctl restart nginx &>>$LOG_FILE
 VALIDATE $? "restart Nginx service"
 
 
