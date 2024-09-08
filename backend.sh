@@ -42,7 +42,7 @@ VALIDATE(){
  fi
  mkdir -p /app & >>$LOG_FILE
  VALIDATE $? " Creating new directory"
- curl -o /tmp/backend.zip  https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE
+ curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE
  VALIDATE $? "copy expense code temp directory"
  cd /app
  rm -rf /app/* #remove the exiting code
@@ -50,7 +50,19 @@ VALIDATE(){
  VALIDATE $? "change directoy and extracting the code"
  npm install &>>$LOG_FILE
  VALIDATE $? " install the dependencies" 
- cp /home/ec2-user/Expense-shell/backend.service /etc/systemd/system/backend.service
+ cp /home/ec2-user/Expense-shell/backend.service /etc/systemd/system/backend.service 
+ dnf install mysql -y  &>>$LOG_FILE
+ VALIDATE $? " install my sql client"
+ mysql -h mysql.crazymonk.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
+ VALIDATE $? "connection to backend schema"
+ systemctl daemon-reload &>>$LOG_FILE
+ VALIDATE $? "system load the sevices"
+ systemctl restart backend &>>$LOG_FILE
+ VALIDATE $? "restart the backend services"
+
+
+ 
+
 
 
 
