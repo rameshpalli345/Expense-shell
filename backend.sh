@@ -26,11 +26,12 @@ VALIDATE(){
     fi
 }
  CHECK_ROOT
- dnf module disable nodejs -y & >>LOG_FILE
+ dnf module disable nodejs -y &>>$LOG_FILE
  VALIDATE $? "disable nodejs previous version"
- dnf module enable nodejs:20 -y & >>LOG_FILE
+ dnf module enable nodejs:20 -y & >>$LOG_FILE
  VALIDATE $? "enable nodejs version20"
- id expense & >>LOG_FILE
+
+ id expense &>>$LOG_FILE
  if [$? -ne 0]
  then 
  "echo -e  expense user not exit .$G.creating $N"
@@ -39,12 +40,12 @@ VALIDATE(){
  else
 "echo -e  expense user already created.. $Y skipping..$N"
  fi
- mkdir -p /app & >>LOG_FILE
+ mkdir -p /app & >>$LOG_FILE
  VALIDATE $? " Creating new directory"
  curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip & >>LOG_FILE
  VALIDATE $? "copy expense code temp directory"
  cd /app
- unzip /tmp/backend.zip & >>LOG_FILE
+ unzip /tmp/backend.zip & >>$LOG_FILE
  VALIDATE $? "change directoy and extracting the code"
 
 
