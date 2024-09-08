@@ -38,7 +38,7 @@ VALIDATE(){
  useradd expense & >>$LOG_FILE
  VALIDATE $? "user expense created"
  else
-"echo -e  expense user already created.. $Y skipping..$N"
+ echo -e  "expense user already created.. $Y skipping..$N"
  fi
  mkdir -p /app & >>$LOG_FILE
  VALIDATE $? " Creating new directory"
