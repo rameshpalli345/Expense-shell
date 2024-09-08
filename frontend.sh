@@ -52,7 +52,7 @@ VALIDATE  $? "copy code to temp folder"
 
 cd /usr/share/nginx/html
 VALIDATE  $? "change the path to html"
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>>$LOG_FILE
 VALIDATE $? "unzip the files into html folder"
 
 cp /home/ec2-user/Expense-shell/expense.conf /etc/nginx/default.d/expense.conf 
