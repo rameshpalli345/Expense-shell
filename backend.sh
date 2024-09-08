@@ -32,10 +32,10 @@ VALIDATE(){
  VALIDATE $? "enable nodejs version20"
 
  id expense &>>$LOG_FILE
- if [$? -ne 0]
+ if [ $? -ne 0 ]
  then 
  "echo -e  expense user not exit .$G.creating $N"
- useradd expense & >>LOG_FILE
+ useradd expense & >>$LOG_FILE
  VALIDATE $? "user expense created"
  else
 "echo -e  expense user already created.. $Y skipping..$N"
