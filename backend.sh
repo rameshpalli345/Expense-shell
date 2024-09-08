@@ -48,6 +48,10 @@ VALIDATE(){
  rm -rf /app/* #remove the exiting code
  unzip /tmp/backend.zip & >>$LOG_FILE
  VALIDATE $? "change directoy and extracting the code"
+ npm install &>>$LOG_FILE
+ VALIDATE $? " install the dependencies" 
+ cp /root/Expense-shell/backend.service /etc/systemd/system/backend.service
+ 
 
 
 
