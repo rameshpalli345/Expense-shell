@@ -9,7 +9,8 @@ then
 echo -e " $G SOURCE Directory exists..$R "
 else 
 echo -e " $R SOURCE Directory not exists..$N"
+exit 1
 fi
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime+0)
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +0)
 echo "echo files: $FILES"
 
