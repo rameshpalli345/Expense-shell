@@ -13,10 +13,10 @@ exit 1
 fi
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +1 )
 echo "files: $FILES"
-while IFS= read -r line #IFS = internal feed seperator and r emtpy white spaces 
+while IFS= read -r file #IFS = internal feed seperator and r emtpy white spaces 
 do
-echo "deleting the line : $line"
-rm -rf $line
-echo "deleted the $line"
+echo "deleting the line : $file"
+rm -rf $file
+echo "deleted the $file"
 done <<< $FILES
 
