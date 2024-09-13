@@ -34,7 +34,7 @@ Y="\e[33m"
         ZIP_FILE="$DEST_DIR/applogs-$TIMESTAMP.zip"
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
   # check if the zip correctly woking
-        if [ -f $ZIP_FILE]
+        if [ -f $ZIP_FILE ]
          then
             echo "succesfully zipped the logs older than $DAYS"
             while IFS= read -r file #IFS = internal feed seperator and r emtpy white spaces 
