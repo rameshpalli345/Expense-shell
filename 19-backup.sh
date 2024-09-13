@@ -28,7 +28,7 @@ Y="\e[33m"
        echo " Destination directory does not exit . please check."
   fi
     FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
-    if [ ! -z $FILES] # true if the files is empty ! nakes it expression is false
+    if [ ! -z $FILES ] # true if the files is empty ! nakes it expression is false
     then 
         echo "files are found "
         ZIP_FILE="$DEST_DIR/applogs-$TIMESTAMP.zip"
