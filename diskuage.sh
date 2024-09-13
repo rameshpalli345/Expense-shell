@@ -1,5 +1,5 @@
 #!/bin/bash
-DISK_USAGE=$(df-hT | grep xfs)
+DISK_USAGE=$(df -hT | grep xfs)
 DISK_THERSHOLD=5
 
 while IFS= read -r line #IFS = internal feed seperator and r emtpy white spaces 
