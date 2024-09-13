@@ -16,6 +16,10 @@ Y="\e[33m"
     then
         USAGE
     fi
+    if[! -d  $SOURCE_DIR ]
+    then  
+    
+    echo :
 
 
 
