@@ -16,14 +16,16 @@ Y="\e[33m"
     then
         USAGE
     fi
-if [ ! -d $SOURCE_DIR ]
+
+  if [ ! -d $SOURCE_DIR ]
     then  
        echo " Source directory does not exit ... please check"
-fi
-fi [ ! -d $DEST_DIR ]
+  fi
+
+  if [ ! -d $DEST_DIR ]
     then 
        echo " Destination directory does not exit . please check."
-fi
+  fi
 FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 if [ ! -z $FILES]
  then 
