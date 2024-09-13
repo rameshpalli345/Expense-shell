@@ -16,10 +16,21 @@ Y="\e[33m"
     then
         USAGE
     fi
-    if[! -d  $SOURCE_DIR ]
+if [! -d  $SOURCE_DIR ]
     then  
-    
-    echo :
+       echo " Source directory does not exit ... please check"
+fi
+fi [ ! -d $DEST_DIR ]
+    then 
+       echo " Destination directory does not exit . please check."
+fi
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
+if [ ! -z $FILES]
+ then 
+  echo "files are found "
+ else
+  echo "no files older than $DAYS"
+fi
 
 
 
