@@ -1,7 +1,7 @@
 #!/bin/bash
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS =${3 : -14} # if $3 is empty then 14 days by default
+DAYS =${3:-14} # if $3 is empty then 14 days by default
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
