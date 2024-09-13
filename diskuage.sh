@@ -4,7 +4,7 @@ DISK_THERSHOLD=5
 
 while IFS= read -r line #IFS = internal feed seperator and r emtpy white spaces 
 do
-  USAGE=$(echo $line | grep xfs |awk -F  " " '{print $9F}' | cut -d "%" -f1)
+  USAGE=$(echo $line | grep xfs |awk -F  " " '{print $6F}' | cut -d "%" -f1)
   PARTITION=$(echo $line | grep xfs | awk -F "   " '{print $NF}')
   if [ $USAGE -ge $DISK_THERSHOLD ]
   then
