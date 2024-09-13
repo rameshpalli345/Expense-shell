@@ -16,7 +16,7 @@ Y="\e[33m"
     then
         USAGE
     fi
-if [! -d  $SOURCE_DIR ]
+if [ ! -d $SOURCE_DIR ]
     then  
        echo " Source directory does not exit ... please check"
 fi
