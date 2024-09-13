@@ -27,29 +27,29 @@ Y="\e[33m"
     then 
        echo " Destination directory does not exit . please check."
   fi
-FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
-if [ ! -z $FILES] # true if the files is empty ! nakes it expression is false
- then 
-  echo "files are found "
-  ZIP_FILE="$DEST_DIR/applogs-$TIMESTAMP.zip"
-  find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
+    FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
+    if [ ! -z $FILES] # true if the files is empty ! nakes it expression is false
+    then 
+        echo "files are found "
+        ZIP_FILE="$DEST_DIR/applogs-$TIMESTAMP.zip"
+    find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
   # check if the zip correctly woking
-  if [ -f $ZIP_FILE]
-    then
-   echo "succesfully zipped the logs older than $DAYS"
-   while IFS= read -r file #IFS = internal feed seperator and r emtpy white spaces 
-    do
-    echo "deleting the line : $file"
-    rm -rf $file
-    echo "deleted the $file"
-    done <<< $FILES
-    else 
-    echo " files are not zipped"
-    exit 1
+        if [ -f $ZIP_FILE]
+         then
+            echo "succesfully zipped the logs older than $DAYS"
+            while IFS= read -r file #IFS = internal feed seperator and r emtpy white spaces 
+             do
+                echo "deleting the line : $file"
+                rm -rf $file
+                echo "deleted the $file"
+            done <<< $FILES
+        else 
+            echo "files are not zipped"
+            exit 1
+        fi
+    else
+        echo "no files older than $DAYS"
     fi
- else
-  echo "no files older than $DAYS"
-fi
 
 
 
