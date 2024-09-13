@@ -9,10 +9,8 @@ Y="\e[33m"
 
 # Check the arugments are provided 
 
-   USAGE()
-   {
+   USAGE(){
      echo  "$R USAGE:: $N sh 19-backup.sh source(dir) and destination(dir) and days (number)"
-    
    }
  
     if [ $# -lt 2 ] {
